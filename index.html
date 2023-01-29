@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator by Vishal</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <h2>CALCULATOR</h2>
+    </header>
+
+    <div id="main-content">
+        <video id="bg-video" autoplay muted loop>
+            <source src="./video/Pexels Videos 2759484.mp4" type="video/mp4">
+        </video>
+        <div id="calculator">
+            <input type="text" id="display" disabled>
+            <br>
+            <div id="buttons">
+                <button class="number" onclick="display('1')">1</button>
+                <button class="number" onclick="display('2')">2</button>
+                <button class="number" onclick="display('3')">3</button>
+                <button class="operator" onclick="display('+')">+</button>
+                <br>
+                <button class="number" onclick="display('4')">4</button>
+                <button class="number" onclick="display('5')">5</button>
+                <button class="number" onclick="display('6')">6</button>
+                <button class="operator" onclick="display('-')">-</button>
+                <br>
+                <button class="number" onclick="display('7')">7</button>
+                <button class="number" onclick="display('8')">8</button>
+                <button class="number" onclick="display('9')">9</button>
+                <button class="operator" onclick="display('*')">*</button>
+                <br>
+                <button class="number" onclick="display('.')">.</button>
+                <button class="number" onclick="display('0')">0</button>
+                <button class="operator" onclick="calculate()">=</button>
+                <button class="operator" onclick="display('/')">/</button>
+                <br>
+                <button id="clear" onclick="clearDisplay()">Clear</button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        var input = "";
+        var answer;
+
+        function display(val) {
+            input += val;
+            document.getElementById("display").value = input;
+        }
+
+        function calculate() {
+            try {
+                answer = eval(input);
+                document.getElementById("display").value = answer;
+                input = answer;
+            } catch (err) {
+                document.getElementById("display").value = "Error";
+                input = "";
+            }
+        }
+
+        function clearDisplay() {
+            input = "";
+            document.getElementById("display").value = "";
+        }
+
+    </script>
+</body>
+
+</html>
